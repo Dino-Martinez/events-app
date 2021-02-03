@@ -45,7 +45,7 @@ def rsvp(event_id):
         event = Event.query.filter_by(id=event_id).one()
         event.number_of_guests = event.number_of_guests + 1
         guest.events.append(event)
-        db.session.add(new_guest)
+        db.session.add(guest)
         db.session.commit()
     else:
         guest_email = request.form.get('email')
